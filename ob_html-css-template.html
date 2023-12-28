@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OB Structured Layout</title>
+<style>
+  body {
+    font-family: 'Manrope', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #eaeaea;
+  }
+  .wrapper {
+    max-width: 1000px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+  }
+  .header, .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .button {
+    border: none;
+    border-radius:4px;
+    padding: 10px 20px;
+    color: #fff;
+    cursor: pointer;
+  }
+  .back-button {
+    background-color: #fc5185;
+  }
+  .download-button {
+    background-color: #3fc1c9;
+  }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .column, .full-width {
+    border: 1px solid #364f6b;
+    padding: 20px;
+    text-align: center;
+  }
+  .column {
+    width: 32%;
+  }
+  .column .deets {
+    width: 42%;
+  }
+  .full-width {
+    width: 100%;
+  }
+  
+  .summary-boxes{
+  text-align: left;
+  background:#f5f5f5;
+  color:#364f6b;
+  border:#364f6b;
+  }
+  
+  .info-bank{
+  text-align: left;
+  font-size:12px;
+  }
+  
+  .important-infor{
+  width:20%;
+  text-align: left;
+  }
+  .summary-boxes .detail-headers{
+  text-align: left;
+  font-weight:600;
+  font-size:19px;
+  
+  }
+  .important-infor .bal-amount{
+  text-align: left;
+  font-weight:600;
+  font-size:24px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table, th, td {
+    border: 1px solid #364f6b;
+  }
+  th {
+    background:#364f6b;
+    padding: 10px;
+    text-align: left;
+    color:#f5f5f5;
+    font-size:11px;
+  }
+  td {
+    padding: 8px;
+    text-align: left;
+  }
+  .summary_section{
+  background:#3fc1c929;
+  }
+  .date_title{
+  font-size:12px}
+  .table-footer {
+    background-color: #ddd;
+  }
+  
+  .first_row{
+  background:#f5f5f5;
+  }
+  
+  .second_row{
+  background:#fff;
+  }
+  
+  .sumar_total{
+  background-color: #364f6b47;
+  font-size:12px;
+  font-weight:700;
+  color:#364f6b;
+  }
+  
+  .content_data_size{
+  font-size:12px;
+  }
+  .statement_table{
+  margin-bottom:16px;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <div class="header">
+    <button class="button back-button">Back</button>
+    <button class="button download-button">Download PDF</button>
+  </div>
+  
+  
+  
+  <div class="row">
+    <div class="column summary-boxes"><span class="detail-headers">Consumer Name:</span><br> {{name here}}
+<hr>
+<span class="detail-headers">Bank Name</span><br>{{bank name here}}
+</div>
+
+    <div class="column summary-boxes">
+    <span class="detail-headers">Consumer  Search Type</span><br>Fresh Full Standard (90 Days)
+<hr>
+<span class="detail-headers">Brand/Company:</span><br>Searchers Name
+
+</div>
+
+    <div class="column summary-boxes">
+    <span class="detail-headers">Date Created:</span><br> 30/01/2023 | {{Time here}}
+<hr>
+<span class="detail-headers">Date Obtained</span><br>Same/As/Above {{Time here}}
+
+    
+    
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="column deets info-bank">Acct Type: {{Data here}}<br>Acct Name: {{Data here}}<br>Acct NickName: {{Data here}}<br>Sort Code: {{Data here}} <br> Acct No: {{Data here}} <br>Address: {{Data here}}</div>
+    <div class="column important-infor">Current Balance<br> <span class="bal-amount">{{£amount}}</span></div>
+
+
+
+   <div class="column important-infor">Available Balance<br> <span class="bal-amount">{{£amount}}</span></div>
+
+    
+    
+    <div class="column important-infor">Overdraft<br> <span class="bal-amount">{{£amount}}</span></div>
+
+
+
+  </div>
+
+ <table>
+    <thead>
+      <tr>
+        <th colspan="9">Categorisation Summary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Each table row with 9 cells -->
+      <tr class="summary_section">
+        <td class="date_title">Category</td>
+        <td class="date_title">{{date here}}<br>Credit</td>
+        <td class="date_title">{{date here}}<br>Debit</td>
+        <td class="date_title">{{date here}}<br>Credit</td>
+        <td class="date_title">{{date here}}<br>Debit</td>
+        <td class="date_title">{{date here}}<br>Credit</td>
+        <td class="date_title">{{date here}}<br>Debit</td>
+        <td class="date_title">Total <br>Credit</td>
+        <td class="date_title">Total <br>Debit</td>
+      </tr>
+      <tr class="first_row content_data_size">
+         <td>{{Category name here}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+      </tr>
+      <tr class="second_row content_data_size">
+         <td>{{Category name here}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+      </tr>
+      <tr class="first_row content_data_size">
+         <td>{{Category name here}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+      </tr>
+      <tr class="second_row content_data_size">
+         <td>{{Category name here}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+      </tr>
+      <tr class="first_row content_data_size">
+         <td>{{Category name here}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+      </tr>
+      <tr class="second_row content_data_size">
+         <td>{{Category name here}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+      </tr>
+      <tr class="first_row content_data_size">
+         <td>{{Category name here}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+      </tr>
+      <tr class="second_row content_data_size">
+         <td>{{Category name here}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+      </tr>
+      <tr class="first_row content_data_size">
+         <td>{{Category name here}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+      </tr>
+      <tr class="second_row content_data_size">
+         <td>{{Category name here}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+      </tr>      
+      <tr class="first_row content_data_size">
+         <td>{{Category name here}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+      </tr>
+      <tr class="second_row content_data_size">
+         <td>{{Category name here}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+      </tr>
+      <tr class="first_row content_data_size">
+         <td>{{Category name here}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+      </tr>
+      <tr class="second_row content_data_size">
+         <td>{{Category name here}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr class="sumar_total">
+         <td>Total</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+        <td>{{£0.00}}</td>
+      </tr>
+    </tfoot>
+  </table>
+  
+  <br>
+   <div class="row">
+    <div class="column deets info-bank">Acct Type: {{Data here}}<br>Acct Name: {{Data here}}<br>Acct NickName: {{Data here}}<br>Sort Code: {{Data here}} <br> Acct No: {{Data here}} <br>Address: {{Data here}}</div>
+    <div class="column important-infor">Current Balance<br> <span class="bal-amount">{{£amount}}</span></div>
+
+
+
+   <div class="column important-infor">Available Balance<br> <span class="bal-amount">{{£amount}}</span></div>
+
+    
+    
+    <div class="column important-infor">Overdraft<br> <span class="bal-amount">{{£amount}}</span></div>
+
+  </div>
+ 
+ <table class="statement_table">
+    <thead>
+      <tr>
+        <th colspan="7">Statement</th>
+        <th style="text-align:right;">{{Display Month}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Each table row with 9 cells -->
+      <tr class="summary_section content_data_size">
+        <td>Type</td>
+        <td>Category</td>
+        <td>Description</td>
+        <td>Date</td>
+        <td>Status</td>
+        <td>Credit</td>
+        <td>Debit</td>
+        <td>Running Balance</td>
+        
+      </tr>
+      <tr class="first_row content_data_size">
+         <td>{{Credit}}</td>
+        <td>{{Category name here}}</td>
+        <td>{{B&M 171 - BOOTLE ON 29 JAN CLP}}</td>
+        <td>{{30/12/23}}</td>
+        <td>{{Booked}}</td>
+        <td>{{£10.00}}</td>
+        <td></td>
+        <td>{{£10.57}}</td>
+        
+      </tr>
+      
+    </tbody>
+    <tfoot>
+      <tr class="scond_row content_data_size">
+         <td>{{Debit}}</td>
+        <td>{{Category name here}}</td>
+        <td>{{B&M 171 - BOOTLE ON 29 JAN CLP}}</td>
+        <td>{{30/12/23}}</td>
+        <td>{{Pending}}</td>
+        <td></td>
+        <td>{{£8.47}}</td>
+        <td>{{£18.97}}</td>
+        
+      </tr>
+    </tfoot>
+  </table>
+  
+  
+  <div class="row">
+    <div class="column deets info-bank">Acct Type: {{Data here}}<br>Acct Name: {{Data here}}<br>Acct NickName: {{Data here}}<br>Sort Code: {{Data here}} <br> Acct No: {{Data here}} <br>Address: {{Data here}}</div>
+    <div class="column important-infor">Current Balance<br> <span class="bal-amount">{{£amount}}</span></div>
+
+
+
+   <div class="column important-infor">Available Balance<br> <span class="bal-amount">{{£amount}}</span></div>
+
+    
+    
+    <div class="column important-infor">Overdraft<br> <span class="bal-amount">{{£amount}}</span></div>
+
+  </div>
+
+  
+ <table class="statement_table">
+    <thead>
+      <tr>
+        <th colspan="7">Statement</th>
+        <th style="text-align:right;">{{Display Month}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Each table row with 9 cells -->
+      <tr class="summary_section content_data_size">
+        <td>Type</td>
+        <td>Category</td>
+        <td>Description</td>
+        <td>Date</td>
+        <td>Status</td>
+        <td>Credit</td>
+        <td>Debit</td>
+        <td>Running Balance</td>
+        
+      </tr>
+      <tr class="first_row content_data_size">
+         <td>{{Credit}}</td>
+        <td>{{Category name here}}</td>
+        <td>{{B&M 171 - BOOTLE ON 29 JAN CLP}}</td>
+        <td>{{30/12/23}}</td>
+        <td>{{Booked}}</td>
+        <td>{{£10.00}}</td>
+        <td></td>
+        <td>{{£10.57}}</td>
+        
+      </tr>
+      
+    </tbody>
+    <tfoot>
+      <tr class="scond_row content_data_size">
+         <td>{{Debit}}</td>
+        <td>{{Category name here}}</td>
+        <td>{{B&M 171 - BOOTLE ON 29 JAN CLP}}</td>
+        <td>{{30/12/23}}</td>
+        <td>{{Pending}}</td>
+        <td></td>
+        <td>{{£8.47}}</td>
+        <td>{{£18.97}}</td>
+        
+      </tr>
+    </tfoot>
+  </table>
+  
+  <div class="row">
+    <div class="column deets info-bank">Acct Type: {{Data here}}<br>Acct Name: {{Data here}}<br>Acct NickName: {{Data here}}<br>Sort Code: {{Data here}} <br> Acct No: {{Data here}} <br>Address: {{Data here}}</div>
+    <div class="column important-infor">Current Balance<br> <span class="bal-amount">{{£amount}}</span></div>
+
+
+
+   <div class="column important-infor">Available Balance<br> <span class="bal-amount">{{£amount}}</span></div>
+
+    
+    
+    <div class="column important-infor">Overdraft<br> <span class="bal-amount">{{£amount}}</span></div>
+
+  </div>
+
+  
+  <table class="statement_table">
+    <thead>
+      <tr>
+        <th colspan="7">Statement</th>
+        <th style="text-align:right;">{{Display Month}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Each table row with 9 cells -->
+      <tr class="summary_section content_data_size">
+        <td>Type</td>
+        <td>Category</td>
+        <td>Description</td>
+        <td>Date</td>
+        <td>Status</td>
+        <td>Credit</td>
+        <td>Debit</td>
+        <td>Running Balance</td>
+        
+      </tr>
+      <tr class="first_row content_data_size">
+         <td>{{Credit}}</td>
+        <td>{{Category name here}}</td>
+        <td>{{B&M 171 - BOOTLE ON 29 JAN CLP}}</td>
+        <td>{{30/12/23}}</td>
+        <td>{{Booked}}</td>
+        <td>{{£10.00}}</td>
+        <td></td>
+        <td>{{£10.57}}</td>
+        
+      </tr>
+      
+    </tbody>
+    <tfoot>
+      <tr class="scond_row content_data_size">
+         <td>{{Debit}}</td>
+        <td>{{Category name here}}</td>
+        <td>{{B&M 171 - BOOTLE ON 29 JAN CLP}}</td>
+        <td>{{30/12/23}}</td>
+        <td>{{Pending}}</td>
+        <td></td>
+        <td>{{£8.47}}</td>
+        <td>{{£18.97}}</td>
+        
+      </tr>
+    </tfoot>
+  </table>
+  
+
+</div>
+
+
+</body>
+</html>
